@@ -9,7 +9,6 @@
     <style>
         body {
             background-color: #7A678E;
-            /* background-color: #a790c0; */
         }
         .navbar-collapse {
             text-align: right;
@@ -23,26 +22,16 @@
         .dropdown-menu {
             background-color: #71578e;
         }
-        p {
-            font-size: 35px;
-            text-align: center;
-        }
-        input[type="text"] {
-            font-size: 18px;
-            padding: 10px;
-            margin: 10px 0;
-            width: 300px;
-            border: 2px solid #929292;
-            border-radius: 20px;
-            background-color: #c7a2f1;
-            align-items: center;
+        .supporttext{
+            margin: 20px 0;
+            margin-left: 10%;
+            font-size: 15px;
         }
         .form-container {
             max-width: 600px;
             margin: auto;
             padding: 20px;
-            /* background-color: #807096; */
-            background-color: #6a5b7e;;
+            background-color: #6a5b7e;
             border-radius: 15px;
         }
         .form-container input[type="text"], .form-container input[type="file"] {
@@ -62,7 +51,6 @@
             display: inline-block;
             padding: 10px 20px;
             font-size: 16px;
-            color: white;
             background-color: #9370ba;
             border: none;
             border-radius: 20px;
@@ -82,21 +70,6 @@
             width: 60px;
             cursor: pointer;
         }
-        /* .popup {
-            position: fixed;
-            right: 80px;
-            bottom: 80px;
-            width: 300px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            display: none;
-            padding: 20px;
-        }
-        .loansupport{
-            width:300px;
-            border-radius: 10px;
-        } */
         .popup {
             position: fixed;
             right: 80px;
@@ -107,13 +80,13 @@
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             display: none;
             padding: 20px;
-            overflow: hidden; /* Hide overflow to make sure content doesn't spill out */
+            overflow: hidden; 
         }
         .loansupport {
             border-radius: 10px;
-            width: 100%; /* Makes the image width fit the popup */
-            height: auto; /* Keeps aspect ratio */
-            display: block; /* Ensures the image takes up the full width available */
+            width: 100%;
+            height: auto; 
+            display: block; 
         }
         .back {
             text-decoration: none;
@@ -125,12 +98,16 @@
             color: rgba(0, 0, 0, 0.468);
             font-size: 25px;
         }
+        .navbar {
+                border: 1px solid rgb(107, 107, 107);
+                background-color: #7A678E;
+            }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm bg navbar-dark">
+    <nav class="navbar navbar-expand-sm bg navbar-dark sticky-top">
         <div class="container-fluid">
-            <img src="logo3.png" alt="logo" width="20%" href="index.html">
+            <a href="home2p.html"><img src="logo3.png" alt="logo" width="20%"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -147,7 +124,7 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Profile
+                            Profile-Edit Profile
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="digitalwallet.html">Digital Wallet</a></li>
@@ -164,23 +141,23 @@
         <form>
             <div class="mb-3">
                 <label for="fname" class="form-label">*First Name:</label>
-                <input type="text" id="fname" name="fname" class="form-control">
+                <input type="text" value="John" id="fname" name="fname" class="form-control">
             </div>
             <div class="mb-3">
                 <label for="lname" class="form-label">*Last Name:</label>
-                <input type="text" id="lname" name="lname" class="form-control">
+                <input type="text" value="Tan" id="lname" name="lname" class="form-control">
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">*Email:</label>
-                <input type="text" id="email" name="email" class="form-control">
+                <input type="text" value="john@gmail.com" id="email" name="email" class="form-control">
             </div>
             <div class="mb-3">
                 <label for="number" class="form-label">*Phone Number:</label>
-                <input type="text" id="number" name="number" class="form-control">
+                <input type="text"  value="98765432" id="number" name="number" class="form-control">
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">*Password:</label>
-                <input type="text" id="password" name="password" class="form-control">
+                <input type="text" value="Jt123456@" id="password" name="password" class="form-control">
             </div>
             <div class="mb-3">
                 <label for="cpassword" class="form-label">Change Password:</label>
@@ -192,7 +169,7 @@
             </div>
             <div class="mb-3">
                 <label for="income" class="form-label">*Income Tax for the past 2 years:</label>
-                <input type="text" id="income" name="income" class="form-control">
+                <input type="text" value="2000" id="income" name="income" class="form-control">
             </div>
             <div class="mb-3">
                 <label for="doc" class="form-label">*Employment Document:</label>
@@ -200,7 +177,7 @@
             </div>
             <div class="mb-3">
                 <label for="nric" class="form-label">*NRIC:</label>
-                <input type="text" id="nric" name="nric" class="form-control">
+                <input type="text" value="S12345678S" id="nric" name="nric" class="form-control">
             </div>
             <div class="mb-3">
                 <label for="photo" class="form-label">*Photo of NRIC front and back:</label>
@@ -214,19 +191,23 @@
         </form>
         <a class="back" href="digitalwallet3.html">< Back</a>
     </div>
-    <img class="support" src="support.png" alt="Support" onclick="togglePopup()">
+    <br>
+    <img class="support" src="support.png" alt="Support" onclick="popup()">
     <div class="popup" id="popup">
         <img class="loansupport" src="supportloan.png">
-        <!-- <h5>Hi</h5>
-        <p>How can we help?</p> -->
         <div>
-            <button class="btn btn-primary mb-2">Ask a question</button>
-            <button class="btn btn-primary mb-2">Message</button>
-            <p>Our live chat will take awhile to respond to you</p>
+            <button class="btn btn-primary mb-2" onclick="showTextArea('question')">Ask a question</button>
+            <button class="btn btn-primary mb-2" onclick="showTextArea('message')">Message</button>
+            <p class="supporttext">Our live chat will take a while to respond to you</p>
+            <div id="textAreaContainer" style="display: none;">
+                <textarea id="textArea" placeholder="Type your message here..." rows="5" style="width: 100%;"></textarea>
+                <button class="btn btn-primary mt-2" onclick="sendMessage()">Send</button>
+            </div>
         </div>
     </div>
+
     <script>
-        function togglePopup() {
+        function popup() {
             var popup = document.getElementById("popup");
             if (popup.style.display === "none" || popup.style.display === "") {
                 popup.style.display = "block";
@@ -234,6 +215,31 @@
                 popup.style.display = "none";
             }
         }
+
+        function showTextArea(type) {
+            var textAreaContainer = document.getElementById("textAreaContainer");
+            var textArea = document.getElementById("textArea");
+            
+            textArea.value = ''; //to remove previous text
+
+            textAreaContainer.style.display = "block";
+            
+            if (type === 'question') {
+                textArea.placeholder = "Type your question here...";
+            } else if (type === 'message') {
+                textArea.placeholder = "Type your message here...";
+            }
+        }
+
+        function sendMessage() {
+            var textArea = document.getElementById("textArea");
+            var message = textArea.value;
+
+            alert("Message sent: " + message);
+
+            textArea.value = '';
+        }
+
     </script>
 </body>
 </html>

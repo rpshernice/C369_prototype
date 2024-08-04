@@ -17,14 +17,15 @@
             font-family: Lastica;
             font-size: 50px;
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
         }
         .dropdown-menu {
             background-color: #71578e;
         }
-        p {
-            font-size: 25px;
-            margin-bottom: 10px; /* Add margin for spacing */
+        .supporttext{
+            margin: 20px 0;
+            margin-left: 10%;
+            font-size: 15px;
         }
         .support {
             position: fixed;
@@ -94,7 +95,7 @@
         .details-container .expiration-date {
             display: flex;
             align-items: center;
-            gap: 10px; /* Adjust gap between items */
+            gap: 10px; 
         }
         input[type="text"] {
             font-size: 18px;
@@ -143,7 +144,7 @@
         .button-link:hover {
             background-color: #9b79d2;
         }
-        button{
+        .resend{
             background-color: #9370ba;
             border-radius: 10px;
             width:100%;
@@ -154,7 +155,7 @@
 <body>
     <nav class="navbar navbar-expand-sm bg navbar-dark">
         <div class="container-fluid">
-            <img src="logo3.png" alt="logo" width="20%" href="index.html">
+            <a href="home2p.html"><img src="logo3.png" alt="logo" width="20%"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -174,6 +175,7 @@
                             Profile-Digital Wallet
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="budget.html">Budget Calculator</a></li>
                             <li><a class="dropdown-item" href="editprofile.html">Edit Profile</a></li>
                             <li><a class="dropdown-item" href="index.html">Sign Out</a></li>
                         </ul>
@@ -185,35 +187,41 @@
     <div class="form-container">
         <h2>One Time Password (OTP)</h2>
         <p>Enter the OTP code we sent to +65 **** 6789</p>
-        <form>
+        <form action="digitalwallet4.html" method="get">
             <div class="mb-3">
-                <input type="number" id="otp" name="otp" class="form-control">
+                <input type="number" id="otp" name="otp" class="form-control" required>
             </div>
 
             <div class="details-container">
                 <div class="expiration-date">
                     <label for="date" class="form-label">Didn't receive?:</label>
-                    <button type="button">Resend</button>
+                    <button class="resend" onclick="myFunction()">Resend</button>
                 </div>
             </div>
-            <a class="button-link" href="digitalwallet3.html">Submit</a>
+            <button class="button-link" type="submit">Submit</button>
         </form>
     </div>
 
     </div>
-    <img class="support" src="support.png" alt="Support" onclick="togglePopup()">
+    <img class="support" src="support.png" alt="Support" onclick="popup()">
     <div class="popup" id="popup">
         <img class="loansupport" src="supportloan.png">
-        <!-- <h5>Hi</h5>
-        <p>How can we help?</p> -->
         <div>
-            <button class="btn btn-primary mb-2">Ask a question</button>
-            <button class="btn btn-primary mb-2">Message</button>
-            <p>Our live chat will take awhile to respond to you</p>
+            <button class="btn btn-primary mb-2" onclick="showTextArea('question')">Ask a question</button>
+            <button class="btn btn-primary mb-2" onclick="showTextArea('message')">Message</button>
+            <p class="supporttext">Our live chat will take a while to respond to you</p>
+            <div id="textAreaContainer" style="display: none;">
+                <textarea id="textArea" placeholder="Type your message here..." rows="5" style="width: 100%;"></textarea>
+                <button class="btn btn-primary mt-2" onclick="sendMessage()">Send</button>
+            </div>
         </div>
     </div>
+
     <script>
-        function togglePopup() {
+        function myFunction() {
+            alert("OTP have sent to your SMS. Please try again. It will expire in 2 mintues.");
+        }
+        function popup() {
             var popup = document.getElementById("popup");
             if (popup.style.display === "none" || popup.style.display === "") {
                 popup.style.display = "block";
@@ -221,6 +229,31 @@
                 popup.style.display = "none";
             }
         }
+
+        function showTextArea(type) {
+            var textAreaContainer = document.getElementById("textAreaContainer");
+            var textArea = document.getElementById("textArea");
+            
+            textArea.value = '';
+
+            textAreaContainer.style.display = "block";
+            
+            if (type === 'question') {
+                textArea.placeholder = "Type your question here...";
+            } else if (type === 'message') {
+                textArea.placeholder = "Type your message here...";
+            }
+        }
+
+        function sendMessage() {
+            var textArea = document.getElementById("textArea");
+            var message = textArea.value;
+
+            alert("Message sent: " + message);
+
+            textArea.value = '';
+        }
+
     </script>
 </body>
 </html>

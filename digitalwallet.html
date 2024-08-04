@@ -14,6 +14,7 @@
             text-align: right;
         }
         h2 {
+            margin-top: 50px;
             font-family: Lastica;
             font-size: 30px;
             text-align: center;
@@ -21,10 +22,6 @@
         }
         .dropdown-menu {
             background-color: #71578e;
-        }
-        p {
-            font-size: 35px;
-            text-align: center;
         }
         .support {
             position: fixed;
@@ -40,17 +37,18 @@
         }
         .card {
             border-radius: 15px;
-            width: 500px;
+            width: 100%;
+            max-width: 400px;
         }
         .add-bank-account {
             position: absolute;
-            right: 200px; /* Adjust this value to position the button correctly */
-            transform: translateY(50%); /* Center the button vertically */
-            bottom: 38%;
+            transform: translateY(50%); 
+            bottom: 23%;
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 400px;
+            width: 100%;
+            max-width: 400px;
             height: 400px;
             border-radius: 50%;
             background-color: #9370ba;
@@ -58,9 +56,7 @@
             font-size: 20px;
             font-weight: bold;
             text-decoration: none;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            text-align: center;
+            margin: 15px;
         }
         .add-bank-account:hover {
             background-color: #9b79d2;
@@ -72,21 +68,6 @@
             width: 60px;
             cursor: pointer;
         }
-        /* .popup {
-            position: fixed;
-            right: 80px;
-            bottom: 80px;
-            width: 300px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            display: none;
-            padding: 20px;
-        }
-        .loansupport{
-            width:300px;
-            border-radius: 10px;
-        } */
         .popup {
             position: fixed;
             right: 80px;
@@ -97,20 +78,26 @@
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             display: none;
             padding: 20px;
-            overflow: hidden; /* Hide overflow to make sure content doesn't spill out */
+            overflow: hidden; 
         }
         .loansupport {
             border-radius: 10px;
-            width: 100%; /* Makes the image width fit the popup */
-            height: auto; /* Keeps aspect ratio */
-            display: block; /* Ensures the image takes up the full width available */
+            width: 100%; 
+            height: auto; 
+            display: block; 
+        }
+
+        .supporttext{
+            margin: 20px 0;
+            margin-left: 10%;
+            font-size: 15px;
         }
     </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-sm bg navbar-dark">
         <div class="container-fluid">
-            <img src="logo3.png" alt="logo" width="20%" href="index.html">
+            <a href="#"><img src="logo3.png" alt="logo" width="20%"></a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
@@ -119,23 +106,21 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="home2p.html">Home</a>
+                        <a class="nav-link" >Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="aboutus2p.html">About Us</a>
+                        <a class="nav-link" >About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="ourservice2p.html">Our Service</a>
+                        <a class="nav-link">Our Service</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Profile
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <!-- <li><a class="dropdown-item" href="digitalwallet.html">Digital Wallet</a></li>
-                            <li><a class="dropdown-item" href="editprofile.html">Edit Profile</a></li>
-                            <li><a class="dropdown-item" href="signout.html">Sign Out</a></li> -->
                             <li><a class="dropdown-item" >Digital Wallet</a></li>
+                            <li><a class="dropdown-item" >Budget Calculator</a></li>
                             <li><a class="dropdown-item" >Edit Profile</a></li>
                             <li><a class="dropdown-item" >Sign Out</a></li>
                         </ul>
@@ -145,23 +130,33 @@
         </div>
     </nav>
     <h2>*You can select the card provided by Smart Loan or choose to transfer to your bank account</h2>
-    <div class="card-container">
-        <a href = 'digitalwallet2.html'><img class="card" src="card.png"  alt="card"></a>
-        <a class="add-bank-account" href="digitalwalletform.html">+ Add Bank Account</a>
-    </div>
-    <img class="support" src="support.png" alt="Support" onclick="togglePopup()">
-    <div class="popup" id="popup">
-        <img class="loansupport" src="supportloan.png">
-        <!-- <h5>Hi</h5>
-        <p>How can we help?</p> -->
-        <div>
-            <button class="btn btn-primary mb-2">Ask a question</button>
-            <button class="btn btn-primary mb-2">Message</button>
-            <p>Our live chat will take awhile to respond to you</p>
+    <div class="container">
+        <div class="card-container">
+            <div class="col-sm-6">
+                <a href = 'digitalwallet2.html'><img class="card" src="card.png"  alt="card"></a>
+            </div>
+            <div class="col-sm-6">
+                <a class="add-bank-account" href="digitalwalletform.html">+ Add Bank Account</a>
+            </div>
         </div>
     </div>
+
+    <img class="support" src="support.png" alt="Support" onclick="popup()">
+    <div class="popup" id="popup">
+        <img class="loansupport" src="supportloan.png">
+        <div>
+            <button class="btn btn-primary mb-2" onclick="showTextArea('question')">Ask a question</button>
+            <button class="btn btn-primary mb-2" onclick="showTextArea('message')">Message</button>
+            <p class="supporttext">Our live chat will take a while to respond to you</p>
+            <div id="textAreaContainer" style="display: none;">
+                <textarea id="textArea" placeholder="Type your message here..." rows="5" style="width: 100%;"></textarea>
+                <button class="btn btn-primary mt-2" onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
     <script>
-        function togglePopup() {
+        function popup() {
             var popup = document.getElementById("popup");
             if (popup.style.display === "none" || popup.style.display === "") {
                 popup.style.display = "block";
@@ -169,6 +164,31 @@
                 popup.style.display = "none";
             }
         }
+
+        function showTextArea(type) {
+            var textAreaContainer = document.getElementById("textAreaContainer");
+            var textArea = document.getElementById("textArea");
+            
+            textArea.value = ''; //to remove previous text
+
+            textAreaContainer.style.display = "block";
+            
+            if (type === 'question') {
+                textArea.placeholder = "Type your question here...";
+            } else if (type === 'message') {
+                textArea.placeholder = "Type your message here...";
+            }
+        }
+
+        function sendMessage() {
+            var textArea = document.getElementById("textArea");
+            var message = textArea.value;
+
+            alert("Message sent: " + message);
+
+            textArea.value = '';
+        }
+
     </script>
 </body>
 </html>

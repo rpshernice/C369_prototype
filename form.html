@@ -13,6 +13,10 @@
         .navbar-collapse {
             text-align: right;
         }
+        .navbar {
+                border: 1px solid rgb(107, 107, 107);
+                background-color: #7A678E;
+        }
         h2 {
             font-family: Lastica;
             font-size: 50px;
@@ -22,10 +26,7 @@
         .dropdown-menu {
             background-color: #71578e;
         }
-        p {
-            font-size: 35px;
-            text-align: center;
-        }
+        
         input[type="text"] {
             font-size: 18px;
             padding: 10px;
@@ -80,21 +81,6 @@
             width: 60px;
             cursor: pointer;
         }
-        /* .popup {
-            position: fixed;
-            right: 80px;
-            bottom: 80px;
-            width: 300px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            display: none;
-            padding: 20px;
-        }
-        .loansupport{
-            width:300px;
-            border-radius: 10px;
-        } */
         .popup {
             position: fixed;
             right: 80px;
@@ -105,44 +91,47 @@
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             display: none;
             padding: 20px;
-            overflow: hidden; /* Hide overflow to make sure content doesn't spill out */
+            overflow: hidden; 
         }
         .loansupport {
             border-radius: 10px;
-            width: 100%; /* Makes the image width fit the popup */
-            height: auto; /* Keeps aspect ratio */
-            display: block; /* Ensures the image takes up the full width available */
+            width: 100%;
+            height: auto; 
+            display: block; 
+        }
+        .supporttext{
+            margin: 20px 0;
+            margin-left: 10%;
+            font-size: 15px;
         }
     
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm bg navbar-dark">
+    <nav class="navbar navbar-expand-sm bg navbar-dark sticky-top">
         <div class="container-fluid">
-            <img src="logo3.png" alt="logo" width="20%" href="index.html">
+            <a href="index.html"><img src="logo3.png" alt="logo" width="20%"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="home2p.html">Home</a>
+                        <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="aboutus2p.html">About Us</a>
+                        <a class="nav-link" >About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="ourservice2p.html">Our Service</a>
+                        <a class="nav-link" >Our Service</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Profile
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <!-- <li><a class="dropdown-item" href="digitalwallet.html">Digital Wallet</a></li>
-                            <li><a class="dropdown-item" href="editprofile.html">Edit Profile</a></li>
-                            <li><a class="dropdown-item" href="signout.html">Sign Out</a></li> -->
                             <li><a class="dropdown-item" >Digital Wallet</a></li>
+                            <li><a class="dropdown-item">Budget Calculator</a></li>
                             <li><a class="dropdown-item" >Edit Profile</a></li>
                             <li><a class="dropdown-item" >Sign Out</a></li>
                         </ul>
@@ -153,43 +142,48 @@
     </nav>
     <h2>Fill in this form to complete your profile</h2>
     <div class="form-container">
-        <form>
+        <form action="digitalwallet.html" method="get">
             <div class="mb-3">
                 <label for="income" class="form-label">*Income tax for the past 2 years:</label>
-                <input type="text" id="income" name="income" class="form-control">
+                <input type="text" id="income" name="income" class="form-control" required>
             </div>
             <div class="mb-3">
                 <label for="doc" class="form-label">*Employment Document:</label>
-                <input type="file" id="doc" name="doc" class="form-control">
+                <input type="file" id="doc" name="doc" class="form-control" >
             </div>
             <div class="mb-3">
                 <label for="nric" class="form-label">*NRIC:</label>
-                <input type="text" id="nric" name="nric" class="form-control">
+                <input type="text" id="nric" name="nric" class="form-control" required>
             </div>
             <div class="mb-3">
                 <label for="photo" class="form-label">*Photo of NRIC front and back:</label>
-                <input type="file" id="photo" name="photo" class="form-control">
+                <input type="file" id="photo" name="photo" class="form-control" >
             </div>
             <div class="mb-3">
                 <label for="loan" class="form-label">Loan purpose (optional):</label>
                 <input type="text" id="loan" name="loan" class="form-control">
             </div>
-            <a class="button-link" href="digitalwallet.html">Submit</a>
+            <button class="button-link" type="submit">Submit</button>
         </form>
     </div>
-    <img class="support" src="support.png" alt="Support" onclick="togglePopup()">
+    <br>
+
+    <img class="support" src="support.png" alt="Support" onclick="popup()">
     <div class="popup" id="popup">
         <img class="loansupport" src="supportloan.png">
-        <!-- <h5>Hi</h5>
-        <p>How can we help?</p> -->
         <div>
-            <button class="btn btn-primary mb-2">Ask a question</button>
-            <button class="btn btn-primary mb-2">Message</button>
-            <p>Our live chat will take awhile to respond to you</p>
+            <button class="btn btn-primary mb-2" onclick="showTextArea('question')">Ask a question</button>
+            <button class="btn btn-primary mb-2" onclick="showTextArea('message')">Message</button>
+            <p class="supporttext">Our live chat will take a while to respond to you</p>
+            <div id="textAreaContainer" style="display: none;">
+                <textarea id="textArea" placeholder="Type your message here..." rows="5" style="width: 100%;"></textarea>
+                <button class="btn btn-primary mt-2" onclick="sendMessage()">Send</button>
+            </div>
         </div>
     </div>
+
     <script>
-        function togglePopup() {
+        function popup() {
             var popup = document.getElementById("popup");
             if (popup.style.display === "none" || popup.style.display === "") {
                 popup.style.display = "block";
@@ -197,6 +191,31 @@
                 popup.style.display = "none";
             }
         }
+
+        function showTextArea(type) {
+            var textAreaContainer = document.getElementById("textAreaContainer");
+            var textArea = document.getElementById("textArea");
+            
+            textArea.value = ''; //to remove previous text
+
+            textAreaContainer.style.display = "block";
+            
+            if (type === 'question') {
+                textArea.placeholder = "Type your question here...";
+            } else if (type === 'message') {
+                textArea.placeholder = "Type your message here...";
+            }
+        }
+
+        function sendMessage() {
+            var textArea = document.getElementById("textArea");
+            var message = textArea.value;
+
+            alert("Message sent: " + message);
+
+            textArea.value = '';
+        }
+
     </script>
 </body>
 </html>

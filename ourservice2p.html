@@ -10,8 +10,12 @@
             body {
                 background-color: #7A678E;
             }
-            .navbar-collapse {
-                text-align: right;
+            .dropdown-menu {
+                background-color: #71578e;
+            }
+            .navbar {
+                border: 1px solid rgb(107, 107, 107);
+                background-color: #7A678E;
             }
             h2 {
                 font-family: Lastica;
@@ -39,7 +43,7 @@
                 justify-content: center;
                 align-items: center;
             }
-            a {
+            .text {
                 display: inline-block;
                 margin-top: 30px;
                 padding: 10px;
@@ -60,23 +64,55 @@
                 margin-top: 100px;
             }
             p {
-              margin: 20px 0;
-              margin-left: 10%;
-              font-size: 30px;
+                margin: 20px 0;
+                margin-left: 10%;
+                font-size: 30px;
             }
-            img{
-              float: right;
-              margin-bottom: 50px;
+            .pic{
+                float: right;
+                margin-bottom: 50px;
             }
-            .dropdown-menu {
-            background-color: #71578e;
-        }
+            .support {
+                position: fixed;
+                right: 10px;
+                bottom: 10px;
+                width: 60px;
+                cursor: pointer;
+            }
+            .popup {
+                position: fixed;
+                right: 80px;
+                bottom: 80px;
+                width: 300px;
+                background-color: white;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+                display: none;
+                padding: 20px;
+                overflow: hidden;
+            }
+            .loansupport {
+                border-radius: 10px;
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+            .loan-container {
+                display: flex;
+                justify-content: center;
+                margin: 40px 0;
+            }
+            .supporttext{
+                margin: 20px 0;
+                margin-left: 10%;
+                font-size: 15px;
+            }
         </style>
     </head>
     <body>
-        <nav class="navbar navbar-expand-sm bg navbar-dark">
+        <nav class="navbar navbar-expand-sm bg navbar-dark sticky-top">
             <div class="container-fluid">
-                <img src="logo3.png" alt="logo" width="20%" href="index.html">
+                <a href="home2p.html"><img src="logo3.png" alt="logo" width="20%"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -97,6 +133,7 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="digitalwallet3.html">Digital Wallet</a></li>
+                                <li><a class="dropdown-item" href="budget.html">Budget Calculator</a></li>
                                 <li><a class="dropdown-item" href="editprofile.html">Edit Profile</a></li>
                                 <li><a class="dropdown-item" href="index.html">Sign Out</a></li>
                             </ul>
@@ -111,37 +148,43 @@
                 <div class="col-md-4">
                     <div class="service">
                         <p>Automated Process</p>
-                        <a href="ap.html">Learn More</a> 
+                        <a class="text" href="ap2.html">Learn More</a> 
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="service">
                         <p>Digital Wallet</p>
-                        <a href="dw.html">Learn More</a> 
+                        <a class="text" href="dw2.html">Learn More</a> 
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="service">
                         <p>AI-powered fraud detection</p>
-                        <a href="ai.html">Learn More</a> 
+                        <a class="text" href="ai2.html">Learn More</a> 
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="service">
                         <p>Interest rate negotiation</p>
-                        <a href="irn.html">Learn More</a> 
+                        <a class="text" href="irn2.html">Learn More</a> 
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="service">
                         <p>24/7 Support</p>
-                        <a href="support.html">Learn More</a> 
+                        <a class="text" href="support2.html">Learn More</a> 
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="service">
                         <p>Blockchain security</p>
-                        <a href="bs.html">Learn More</a> 
+                        <a class="text" href="bs2.html">Learn More</a> 
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service">
+                        <p>Budget Calculator</p>
+                        <a class="text" href="bc2.html">Learn More</a> 
                     </div>
                 </div>
             </div>
@@ -152,7 +195,7 @@
         <br>
         <h2>How to apply for loan?</h2>
         <p>
-          <img src="loan.png" alt="loan" style="width:400px;height:400px;margin-right:40px;">
+          <img class="pic" src="loan.png" alt="loan" style="width:400px;height:400px;margin-right:40px;">
           1. Create an account
           <br>
           2. Fill in the form about your income, credit history, etc.
@@ -166,5 +209,55 @@
           <br>
           6. Wait for the money to go in your account and your all good to go
         </p>
+
+        <img class="support" src="support.png" alt="Support" onclick="popup()">
+        <div class="popup" id="popup">
+            <img class="loansupport" src="supportloan.png">
+            <div>
+                <button class="btn btn-primary mb-2" onclick="showTextArea('question')">Ask a question</button>
+                <button class="btn btn-primary mb-2" onclick="showTextArea('message')">Message</button>
+                <p class="supporttext">Our live chat will take a while to respond to you</p>
+                <div id="textAreaContainer" style="display: none;">
+                    <textarea id="textArea" placeholder="Type your message here..." rows="5" style="width: 100%;"></textarea>
+                    <button class="btn btn-primary mt-2" onclick="sendMessage()">Send</button>
+                </div>
+            </div>
+        </div>
+    
+        <script>
+            function popup() {
+                var popup = document.getElementById("popup");
+                if (popup.style.display === "none" || popup.style.display === "") {
+                    popup.style.display = "block";
+                } else {
+                    popup.style.display = "none";
+                }
+            }
+    
+            function showTextArea(type) {
+                var textAreaContainer = document.getElementById("textAreaContainer");
+                var textArea = document.getElementById("textArea");
+                
+                textArea.value = ''; //to remove the previous text
+    
+                textAreaContainer.style.display = "block";
+                
+                if (type === 'question') {
+                    textArea.placeholder = "Type your question here...";
+                } else if (type === 'message') {
+                    textArea.placeholder = "Type your message here...";
+                }
+            }
+    
+            function sendMessage() {
+                var textArea = document.getElementById("textArea");
+                var message = textArea.value;
+
+                alert("Message sent: " + message);
+    
+                textArea.value = '';
+            }
+    
+        </script> 
     </body>
 </html>

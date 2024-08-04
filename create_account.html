@@ -13,6 +13,10 @@
             .navbar-collapse {
                 text-align: right;
             }
+            .navbar {
+                border: 1px solid rgb(107, 107, 107);
+                background-color: #7A678E;
+            }
             form {
                 display: flex;
                 flex-direction: column;
@@ -38,7 +42,7 @@
                 text-align: center;
             }
             button {
-              background-color: #7A678E;
+                background-color: #7A678E;
                 color: white;
                 padding: 14px 20px;
                 margin: 8px 0;
@@ -64,7 +68,7 @@
                 border-radius: 50%;
             }
             .container {
-                padding: 16px;
+                padding: 15px;
             }
             span.psw {
                 float: right;
@@ -160,14 +164,23 @@
             }
             .singpass{
               width: 300px;
-              height: 70px;
+              height: 80px;
+              border-radius: 8px;
             }
+            .term {
+                color: #000;
+            }
+
+            #container{
+                padding: 50px;
+            }
+            
         </style>
     </head>
     <body>
-        <nav class="navbar navbar-expand-sm bg navbar-dark">
+        <nav class="navbar navbar-expand-sm bg navbar-dark sticky-top">
             <div class="container-fluid">
-                <img src="logo3.png" alt="logo" width="20%" href="index.html">
+                <a href="index.html"><img src="logo3.png" alt="logo" width="20%"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -183,44 +196,47 @@
                             <a class="nav-link" href="our_service.html">Our Service</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="contactus.html">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="create_account.html">Create Account</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <form class="ca">
+        <form class="ca" action="connectwsp.html" method="get">
             <h2>Create Account</h2>
-            <input type="text" id="fname" name="fname" placeholder="First Name">
-            <input type="text" id="lname" name="lname" placeholder="Last Name">
-            <input type="text" id="email" name="email" placeholder="Email">
-            <input type="number" id="contact" name="contact" placeholder="Contact No.">
-            <input type="password" id="password" name="password" placeholder="Password">
+            <input type="text" id="fname" name="fname" placeholder="First Name" required>
+            <input type="text" id="lname" name="lname" placeholder="Last Name" required>
+            <input type="text" id="email" name="email" placeholder="Email" required>
+            <input type="number" id="contact" name="contact" placeholder="Contact No." required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
             <p>*password has to be at least 8 characters long, include 1 special character, 
               <br>1 uppercase, 1 lowercase, and 1 number</p>
-              <!-- <button class="button-link" onclick="location.href='form.html'">Sign up</button> -->
-              <a class="button-link" href="form.html">Sign up</a>
+            <button class="button-link" type="submit">Sign Up</button>
+            <p class="terms">By clicking continue, you agree to our <a class="term" href="#">Terms of Service</a> and <a class="term" href="#">Privacy Policy</a></p>
               <div class="container">
                 <div class="line-with-text">
                     <span>or continue with</span>
                 </div>
             </div>
-            <img class="singpass" src="singpasspng.png">
+            <a href="singpass.html"><img class="singpass" src="singpasspng.png"></a>
+        </div>
         </form>
         <p>Already have an account? <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button></p>
         
         <div id="id01" class="modal">
-            <form class="modal-content animate" action="/action_page.php" method="post">
+            <form class="modal-content animate" action="digitalwallet3.html" method="get">
                 <div class="imgcontainer">
                     <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-                    <img src="img_avatar2.png" alt="Avatar" class="avatar">
                 </div>
-                <div class="container">
-                    <label for="uname"><b>Username</b></label>
-                    <input type="text" placeholder="Enter Username" name="uname" required>
+                <div class="container" id="container">
+                    <label for="uname"><b>Email/Contact No.</b></label>
+                    <input type="text" placeholder="Enter email or contact no." name="uname" required>
                     <label for="psw"><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" name="psw" required>
-                    <button type="submit">Login</button>
+                    <a href="form.html"><button type="submit">Login</button></a>
                     <label>
                         <input type="checkbox" checked="checked" name="remember"> Remember me
                     </label>
@@ -232,10 +248,8 @@
             </form>
         </div>
         <script>
-        // Get the modal
         var modal = document.getElementById('id01');
 
-        // When the user clicks anywhere outside of the modal, close it
         window.onclick = function(event) {
             if (event.target == modal) {
                 modal.style.display = "none";
@@ -244,3 +258,4 @@
         </script>
     </body>
 </html>
+

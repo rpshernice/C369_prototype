@@ -8,10 +8,7 @@
         <title>Smart Loan</title>
         <style>
             body{
-                /* background-color: #c6a5ea; */
-                /* background-color: #C7AEE2; */
                 background-color: #7A678E;
-                /* background-color: #3C205D; */
             }
             .navbar-collapse{
                 text-align: right;
@@ -20,41 +17,43 @@
                 font-family: Lastica;
                 font-size: 50px;
                 text-align: center;
-                margin-bottom: 60px;
+                margin-bottom: 50px;
+                margin-top: 80px;
             }
             .container p{
-                font-size: 23px;
-            }
-            .container {
-                border: 2px solid #a19d9d;
-                padding: 50px;
-                margin: 50px;
-                border-radius: 5px;
-                width: 800px;
-                height: 500px;
                 text-align: center;
-                min-height: 300px;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
+                font-size: 23px;
                 align-items: center;
             }
-            video{
-                border-radius: 50%; /* Makes the video circular */
-                width: 500px; /* Set width */
-                height: 500px; /* Set height, same as width */
-                object-fit: cover; /* Ensures the video content fits within the circle */
-                position: absolute; /* Position relative to .content */
-                top: 60%;
-                right: 85px; /* Move it outside the content container */
-                transform: translateY(-50%); /* Center it vertically */
+            .container {
+                margin-top: 50px;
+                margin-left: 100px;
+                padding: 20px;
+                border-radius: 5px;
+                display: flex;
+            }           
+            
+            .video-circle {
+                margin: 20px;
+                margin-left: 100px;
+                width: 500px;
+                height: 500px;
+                border-radius: 50%;
+                overflow: hidden;
+                position: relative;
+            }
+            .video-circle video {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 50%;
             }
         </style>
     </head>
     <body>
         <nav class="navbar navbar-expand-sm bg navbar-dark">
             <div class="container-fluid">
-                <img src="logo3.png" alt="logo" width="20%" href="index.html">
+              <a href="index.html"><img src="logo3.png" alt="logo" width="20%"></a>
 
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
@@ -72,14 +71,20 @@
                     <a class="nav-link" href="our_service.html">Our Service</a>
                   </li>
                   <li class="nav-item">
+                    <a class="nav-link" href="contactus.html">Contact Us</a>
+                  </li>
+                  <li class="nav-item">
                     <a class="nav-link" href="create_account.html">Create Account</a>
                   </li>
                 </ul>
               </div>
             </div>
         </nav>
+
         <div class="container">
-            <h2>Digital Wallet</h2>
+          <div class="row">
+              <div class="col sm-5" style="border: 2px solid #a19d9d; width: 100%; height: 100%;">
+                <h2>Digital Wallet</h2>
                 <p>Our platform offers a comprehensive suite of financial services 
                     to streamline your banking experience. You can effortlessly check your loan balance 
                     and make repayments, ensuring you stay on top of your finances. 
@@ -88,10 +93,17 @@
                     our easy-to-use loan application process allows you to apply for a loan directly through the platform, 
                     ensuring a quick and efficient decision-making process.
                 </p>
-        </div>
-        <video class="process" autoplay loop muted>
-            <source src="digitalwallet.mp4" type="video/mp4">
-        </video>
-        <br>
+              </div>
+
+              <div class="col sm-7">
+                  <div class="video-circle">
+                      <video class="embed-responsive-item" autoplay loop muted>
+                        <source src="digitalwallet.mp4" type="video/mp4">
+                  </video>
+                  </div>    
+              </div>
+
+          </div>
+      </div>
     </body>
 </html>

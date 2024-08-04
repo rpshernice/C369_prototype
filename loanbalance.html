@@ -22,9 +22,10 @@
         .dropdown-menu {
             background-color: #71578e;
         }
-        p {
-            font-size: 35px;
-            text-align: left; /* Align text to the left */
+        .supporttext{
+            margin: 20px 0;
+            margin-left: 10%;
+            font-size: 15px;
         }
         .support {
             position: fixed;
@@ -58,13 +59,13 @@
         }
         .main-content {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* Two columns for left and right text */
+            grid-template-columns: 1fr 1fr; 
             grid-gap: 20px;
-            border: 1px solid #ddd; /* Add a border */
+            border: 1px solid #ddd; 
             padding: 20px;
             border-radius: 10px;
             background-color: #c8c6c6;
-            width: 100%; /* Adjust as needed */
+            width: 100%; 
         }
         .main-content .option {
             padding: 10px;
@@ -95,7 +96,7 @@
 <body>
     <nav class="navbar navbar-expand-sm bg navbar-dark">
         <div class="container-fluid">
-            <img src="logo3.png" alt="logo" width="20%" href="index.html">
+            <a href="home2p.html"><img src="logo3.png" alt="logo" width="20%"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -115,6 +116,7 @@
                             Profile-Digital Wallet
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="budget.html">Budget Calculator</a></li>
                             <li><a class="dropdown-item" href="editprofile.html">Edit Profile</a></li>
                             <li><a class="dropdown-item" href="index.html">Sign Out</a></li>
                         </ul>
@@ -144,19 +146,22 @@
             <a class="back" href="digitalwallet3.html">< Back</a>
         </div>
     </div>
-    <img class="support" src="support.png" alt="Support" onclick="togglePopup()">
+    <img class="support" src="support.png" alt="Support" onclick="popup()">
     <div class="popup" id="popup">
         <img class="loansupport" src="supportloan.png">
-        <!-- <h5>Hi</h5>
-        <p>How can we help?</p> -->
         <div>
-            <button class="btn btn-primary mb-2">Ask a question</button>
-            <button class="btn btn-primary mb-2">Message</button>
-            <p>Our live chat will take awhile to respond to you</p>
+            <button class="btn btn-primary mb-2" onclick="showTextArea('question')">Ask a question</button>
+            <button class="btn btn-primary mb-2" onclick="showTextArea('message')">Message</button>
+            <p class="supporttext">Our live chat will take a while to respond to you</p>
+            <div id="textAreaContainer" style="display: none;">
+                <textarea id="textArea" placeholder="Type your message here..." rows="5" style="width: 100%;"></textarea>
+                <button class="btn btn-primary mt-2" onclick="sendMessage()">Send</button>
+            </div>
         </div>
     </div>
+
     <script>
-        function togglePopup() {
+        function popup() {
             var popup = document.getElementById("popup");
             if (popup.style.display === "none" || popup.style.display === "") {
                 popup.style.display = "block";
@@ -164,6 +169,31 @@
                 popup.style.display = "none";
             }
         }
+
+        function showTextArea(type) {
+            var textAreaContainer = document.getElementById("textAreaContainer");
+            var textArea = document.getElementById("textArea");
+            
+            textArea.value = ''; //to remove previous text
+
+            textAreaContainer.style.display = "block";
+            
+            if (type === 'question') {
+                textArea.placeholder = "Type your question here...";
+            } else if (type === 'message') {
+                textArea.placeholder = "Type your message here...";
+            }
+        }
+
+        function sendMessage() {
+            var textArea = document.getElementById("textArea");
+            var message = textArea.value;
+
+            alert("Message sent: " + message);
+
+            textArea.value = '';
+        }
+
     </script>
 </body>
 </html>
