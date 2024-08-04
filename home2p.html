@@ -117,53 +117,53 @@
         </main>
         <br>
         <img class="support" src="support.png" alt="Support" onclick="popup()">
-    <div class="popup" id="popup">
-        <img class="loansupport" src="supportloan.png">
-        <div>
-            <button class="btn btn-primary mb-2" onclick="showTextArea('question')">Ask a question</button>
-            <button class="btn btn-primary mb-2" onclick="showTextArea('message')">Message</button>
-            <p class="supporttext">Our live chat will take a while to respond to you</p>
-            <div id="textAreaContainer" style="display: none;">
-                <textarea id="textArea" placeholder="Type your message here..." rows="5" style="width: 100%;"></textarea>
-                <button class="btn btn-primary mt-2" onclick="sendMessage()">Send</button>
+        <div class="popup" id="popup">
+            <img class="loansupport" src="supportloan.png">
+            <div>
+                <button class="btn btn-primary mb-2" onclick="showTextArea('question')">Ask a question</button>
+                <button class="btn btn-primary mb-2" onclick="showTextArea('message')">Message</button>
+                <p class="supporttext">Our live chat will take a while to respond to you</p>
+                <div id="textAreaContainer" style="display: none;">
+                    <textarea id="textArea" placeholder="Type your message here..." rows="5" style="width: 100%;"></textarea>
+                    <button class="btn btn-primary mt-2" onclick="sendMessage()">Send</button>
+                </div>
             </div>
         </div>
-    </div>
 
-    <script>
-        function popup() {
-            var popup = document.getElementById("popup");
-            if (popup.style.display === "none" || popup.style.display === "") {
-                popup.style.display = "block";
-            } else {
-                popup.style.display = "none";
+        <script>
+            function popup() {
+                var popup = document.getElementById("popup");
+                if (popup.style.display === "none" || popup.style.display === "") {
+                    popup.style.display = "block";
+                } else {
+                    popup.style.display = "none";
+                }
             }
-        }
 
-        function showTextArea(type) {
-            var textAreaContainer = document.getElementById("textAreaContainer");
-            var textArea = document.getElementById("textArea");
-            
-            textArea.value = ''; //to remove previous text
+            function showTextArea(type) {
+                var textAreaContainer = document.getElementById("textAreaContainer");
+                var textArea = document.getElementById("textArea");
+                
+                textArea.value = ''; //to remove previous text
 
-            textAreaContainer.style.display = "block";
-            
-            if (type === 'question') {
-                textArea.placeholder = "Type your question here...";
-            } else if (type === 'message') {
-                textArea.placeholder = "Type your message here...";
+                textAreaContainer.style.display = "block";
+                
+                if (type === 'question') {
+                    textArea.placeholder = "Type your question here...";
+                } else if (type === 'message') {
+                    textArea.placeholder = "Type your message here...";
+                }
             }
-        }
 
-        function sendMessage() {
-            var textArea = document.getElementById("textArea");
-            var message = textArea.value;
+            function sendMessage() {
+                var textArea = document.getElementById("textArea");
+                var message = textArea.value;
 
-            alert("Message sent: " + message);
+                alert("Message sent: " + message);
 
-            textArea.value = '';
-        }
+                textArea.value = '';
+            }
 
-    </script> 
+        </script> 
     </body>
 </html>
